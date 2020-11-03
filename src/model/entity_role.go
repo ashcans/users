@@ -9,9 +9,17 @@ type EntityRole struct {
 	Model
 }
 
+func (EntityRole) TableName() string {
+	return "role"
+}
+
 // EntityUserRole 用户角色对应关系
 type EntityUserRole struct {
 	ID uint64 `gorm:"primaryKey" json:"id"`
 	UserId uint64 `gorm:"index:" json:"user_id"`
 	RoleId uint64 `gorm:"index:" json:"role_id"`
+}
+
+func (EntityUserRole) TableName() string {
+	return "user_role"
 }

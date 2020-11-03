@@ -24,6 +24,10 @@ type EntityUser struct {
 	Model
 }
 
+func (EntityUser) TableName() string {
+	return "user"
+}
+
 // EntityUserToken token
 type EntityUserToken struct {
 	UserId uint64 `gorm:"primaryKey" json:"user_id"`
@@ -32,7 +36,9 @@ type EntityUserToken struct {
 	UpdateAt time.Time `json:"updated_at"`
 }
 
-
+func (EntityUserToken) TableName() string {
+	return "user_token"
+}
 
 
 
