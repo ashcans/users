@@ -13,14 +13,14 @@ type Model struct {
 
 // EntityUser 用户
 type EntityUser struct {
-	UserId uint64 `gorm:"primaryKey" json:"user_id"`
-	UserName string `gorm:"type:varchar(255)" json:"user_name"`
-	Password string `gorm:"type:varchar(255)" json:"password"`
-	Salt string   `gorm:"type:varchar(255)" json:"salt"`
-	NickName string `gorm:"type:varchar(255)" json:"nick_name"`
-	Email string `gorm:"type:varchar(255)" json:"email"`
-	Mobile string `gorm:"type:varchar(255)" json:"mobile"`
-	Status int64 `gorm:"type:long" json:"status"`
+	UserId   int64  `gorm:"primaryKey" json:"user_id"`
+	Username string `gorm:"type:varchar(50)" json:"username"`
+	Password string `gorm:"type:varchar(100)" json:"password"`
+	Salt     string `gorm:"type:varchar(20)" json:"salt"`
+	NickName string `gorm:"type:varchar(100)" json:"nick_name"`
+	Email    string `gorm:"type:varchar(100)" json:"email"`
+	Mobile   string `gorm:"type:varchar(100)" json:"mobile"`
+	Status   int32  `gorm:"type:long" json:"status"`
 	Model
 }
 
@@ -30,15 +30,12 @@ func (EntityUser) TableName() string {
 
 // EntityUserToken token
 type EntityUserToken struct {
-	UserId uint64 `gorm:"primaryKey" json:"user_id"`
-	Token string `gorm:"type:varchar(255),index:unique" json:"token"`
+	UserId     int64     `gorm:"primaryKey" json:"user_id"`
+	Token      string    `gorm:"type:varchar(100),index:unique" json:"token"`
 	ExpireTime time.Time `json:"expire_time"`
-	UpdateAt time.Time `json:"updated_at"`
+	UpdateAt   time.Time `json:"updated_at"`
 }
 
 func (EntityUserToken) TableName() string {
 	return "user_token"
 }
-
-
-
