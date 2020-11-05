@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ashcans/repos/src/middleware"
+	"github.com/ashcans/users/src/middleware"
 	"github.com/ashcans/users/src/config"
 	"github.com/ashcans/users/src/controller"
 	"log"
