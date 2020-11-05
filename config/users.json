@@ -1,0 +1,9 @@
+{
+    "databases": [
+        {
+            "dsn": "user=postgres password=123456 host=127.0.0.1 port=5432 database=users sslmode=disable TimeZone=Asia/Shanghai"
+        }
+    ],
+    "publicUrl": "http://127.0.0.1",
+    "listenAddress": "0.0.0.0:80"
+}
